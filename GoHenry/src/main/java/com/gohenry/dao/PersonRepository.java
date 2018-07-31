@@ -7,5 +7,5 @@ import com.gohenry.entity.Person;
 
 @Repository
 public interface PersonRepository extends PagingAndSortingRepository<Person, Integer>{
-
+	public Person findById(Long id);
 }

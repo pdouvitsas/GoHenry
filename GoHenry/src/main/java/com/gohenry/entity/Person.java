@@ -117,14 +117,6 @@ public class Person {
 		this.emailAddress = emailAddress;
 	}
 
-//	public Date getDateOfBirth() {
-//		return dateOfBirth;
-//	}
-//
-//	public void setDateOfBirth(Date dateOfBirth) {
-//		this.dateOfBirth = dateOfBirth;
-//	}
-
 	public String getGender() {
 		return gender;
 	}
@@ -141,16 +133,36 @@ public class Person {
 		this.secondName = secondName;
 	}
 
+//	public Person getParent() {
+//		return parent;
+//	}
+//
+//	public void setParent(Person parent) {
+//		this.parent = parent;
+//	}
+
+	
+	
+	public List<Person> getChildren() {
+		return children;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	
+
 	public Person getParent() {
 		return parent;
 	}
 
 	public void setParent(Person parent) {
 		this.parent = parent;
-	}
-
-	public List<Person> getChildren() {
-		return children;
 	}
 
 	public void setChildren(List<Person> children) {

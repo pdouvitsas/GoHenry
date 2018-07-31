@@ -15,7 +15,7 @@ import com.gohenry.entity.Person;
 import static org.mockito.BDDMockito.given;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PersonServiceTest {
+public class PersonServiceTests {
 
 	@Mock
 	private PersonRepository personRepository;
