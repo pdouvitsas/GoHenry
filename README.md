@@ -9,15 +9,15 @@ Spring boot 1.5.3.RELEASE
 
 # POST requests (save)
 To create a person a sample JSON is given below
-{
-   "title":"Mrs",
-   "firstName":"Jane",
-   "lastName":"Doe",
-   "emailAddress":"jane.doe@gohenry.co.uk",
-   "dateOfBirth":"1990-06-03",
-   "gender":"female",
-   "secondName":""
-}
+  {
+     "title":"Mrs",
+     "firstName":"Jane",
+     "lastName":"Doe",
+     "emailAddress":"jane.doe@gohenry.co.uk",
+     "dateOfBirth":"1990-06-03",
+     "gender":"female",
+     "secondName":""
+  }
 
 To create a child of this person, a sample JSON is given below  
 {  
@@ -40,6 +40,9 @@ Maven
 
 # Future work (if more than 3 hours is spent)
 add proper validation
+
 make the update operations
+
 in the unit tests include more fields to test
+
 proper encapsulation in the DTO classes
