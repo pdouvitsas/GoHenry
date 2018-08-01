@@ -21,7 +21,7 @@ public class PersonService {
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
 	public Person saveOrUpdate(Person person) {
 		return personRepository.save(person);
-	}
+	}	
 	
 	public Person findById(Long id) {
 		return personRepository.findById(id);

@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.gohenry.utils.Utils;
 
 @Entity
@@ -40,8 +41,8 @@ public class Person {
 	private String emailAddress;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "date_of_birth", length = 19, nullable = false)
-	private Date dateOfBirth;
+	@Column(name = "birth_date", length = 19, nullable = false)
+	private Date birthDate;
 	
 	@Column(name = "gender", unique = false, nullable = false, length = 6)
 	private String gender;
@@ -49,6 +50,7 @@ public class Person {
 	@Column(name = "second_name", unique = false, nullable = true, length = 128)
 	private String secondName;
 	
+	@JsonIgnoreProperties("parent")
 	@ManyToOne
 	@JoinColumn(name = "parent_id", nullable = true)
 	private Person parent;
@@ -60,7 +62,7 @@ public class Person {
 		
 	}	
 	
-	public Person(final Long id, final String title, final String firstName, final String lastName, final String emailAddress, final String dateOfBirth,
+	public Person(final Long id, final String title, final String firstName, final String lastName, final String emailAddress, final Date birthDate,
 			final String gender, final String secondName, final Person parent, final List<Person> children) throws ParseException {
 		super();
 		this.id = id;
@@ -68,7 +70,22 @@ public class Person {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailAddress = emailAddress;
-		this.dateOfBirth = Utils.convertStringToDate(dateOfBirth);
+		this.birthDate = birthDate;
+		this.gender = gender;
+		this.secondName = secondName;
+		this.parent = parent;
+		this.children = children;
+	}
+	
+	public Person(final Long id, final String title, final String firstName, final String lastName, final String emailAddress, final String birthDate,
+			final String gender, final String secondName, final Person parent, final List<Person> children) throws ParseException {
+		super();
+		this.id = id;
+		this.title = title;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.emailAddress = emailAddress;
+		this.birthDate = Utils.convertStringToDate(birthDate);
 		this.gender = gender;
 		this.secondName = secondName;
 		this.parent = parent;
@@ -147,15 +164,13 @@ public class Person {
 		return children;
 	}
 
-	public Date getDateOfBirth() {
-		return dateOfBirth;
+	public Date getBirthDate() {
+		return birthDate;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
-
-	
 
 	public Person getParent() {
 		return parent;

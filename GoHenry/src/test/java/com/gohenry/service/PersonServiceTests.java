@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import com.gohenry.controller.PersonNotFoundException;
 import com.gohenry.dao.PersonRepository;
 import com.gohenry.entity.Person;
 import static org.mockito.BDDMockito.given;
@@ -47,6 +48,16 @@ public class PersonServiceTests {
 
 		assertThat(resultPerson.getLastName()).isEqualTo("Doe");
 		assertThat(resultPerson.getFirstName()).isEqualTo("Jane");
+	}
+	
+	@Test
+	public void getPersonDetails_returnsPersonInfo() {
+		given(personRepository.findById(new Long(1))).willReturn(person);
+
+		Person personResult = personService.findById(new Long(1));
+
+		assertThat(personResult.getFirstName()).isEqualTo("Jane");
+		assertThat(personResult.getLastName()).isEqualTo("Doe");
 	}
 
 

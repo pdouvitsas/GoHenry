@@ -2,39 +2,37 @@ package com.gohenry.domain;
 
 import java.text.ParseException;
 import java.util.Date;
-import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.gohenry.utils.Utils;
 
-import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
-
-public class PersonDto {
+public class CreatePersonDto {
 	
-	private Long id;	
-	
-	@JsonInclude(NON_NULL)
+	private Long id;
 	private String title;
-	
 	private String firstName;
 	private String lastName;
 	private String emailAddress;
 	private String dateOfBirth;	
 	private String gender;	
 	private String secondName;
-	
-	@JsonIgnore
+	private Long parentId;
 	private Date birthDate;
 	
-	@JsonInclude(NON_NULL)
-	private List<PersonDto> children;
-	
-	public Long getId() {
-		return id;
+	public CreatePersonDto() {	
 	}
-	public void setId(Long id) {
-		this.id = id;
+	
+	public CreatePersonDto(String title, String firstName, String lastName, String emailAddress, String dateOfBirth,
+			String gender, String secondName, Long parentId) throws ParseException {
+		super();
+		this.title = title;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.emailAddress = emailAddress;
+		this.dateOfBirth = dateOfBirth;
+		this.birthDate = Utils.convertStringToDate((dateOfBirth));
+		this.gender = gender;
+		this.secondName = secondName;
+		this.parentId = parentId;
 	}
 	public String getTitle() {
 		return title;
@@ -60,13 +58,14 @@ public class PersonDto {
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
-	public String getDateOfBirth() throws ParseException {
-		if (this.birthDate != null) {
-			return this.dateOfBirth = Utils.convertDateToString(this.getBirthDate());
-		}
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) throws ParseException {
+		if (birthDate != null) {
+			this.dateOfBirth = Utils.convertDateToString(this.getBirthDate());
+
+		}
 		this.dateOfBirth = dateOfBirth;
 	}
 	public String getGender() {
@@ -81,18 +80,29 @@ public class PersonDto {
 	public void setSecondName(String secondName) {
 		this.secondName = secondName;
 	}
-	public List<PersonDto> getChildren() {
-		return children;
+	public Long getParentId() {
+		return parentId;
 	}
-	public void setChildren(List<PersonDto> children) {
-		this.children = children;
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
 	}
+
 	public Date getBirthDate() {
 		return birthDate;
 	}
+
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	
 	
 	

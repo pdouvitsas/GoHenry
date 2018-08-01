@@ -2,8 +2,6 @@ package com.gohenry.dao;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.Arrays;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -50,6 +48,14 @@ public class PersonRepositoryTests {
 		assertThat(savedChild.getLastName()).isEqualTo(child.getLastName());
 		assertThat(savedChild.getParent().getFirstName()).isEqualTo(child.getParent().getFirstName());
 
+	}
+	
+	@Test
+	public void findById_ReturnsPerson() throws Exception {
+		Person savedPerson = testEntityManager.persistFlushFind(parent);
+		Person person = this.personRepository.findById(savedPerson.getId());
+		assertThat(person.getFirstName()).isEqualTo(savedPerson.getFirstName());
+		assertThat(person.getLastName()).isEqualTo(savedPerson.getLastName());
 	}
 
 }
