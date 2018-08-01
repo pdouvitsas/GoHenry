@@ -35,6 +35,9 @@ The parentId is the id of the parent.
 Tests
 There are unit tests and integration tests.
 
+Built tool
+Maven
+
 Future work (if more than 3 hours is spent)
 add proper validation
 make the update operations
