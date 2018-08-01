@@ -1,13 +1,13 @@
 # GoHenry
 GoHenry
 
-Language used
+#Language used
 Java 8
 
-Framework
+#Framework
 Spring boot 1.5.3.RELEASE
 
-POST requests (save)
+#POST requests (save)
 To create a person a sample JSON is given below
 {
    "title":"Mrs",
@@ -32,13 +32,13 @@ To create a child of this person, a sample JSON is given below
 
 The parentId is the id of the parent.
 
-Tests
+#Tests
 There are unit tests and integration tests.
 
-Built tool
+#Built tool
 Maven
 
-Future work (if more than 3 hours is spent)
+#Future work (if more than 3 hours is spent)
 add proper validation
 make the update operations
 in the unit tests include more fields to test
