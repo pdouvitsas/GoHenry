@@ -39,7 +39,10 @@ There are unit tests and integration tests.
 Maven
 
 # Future work (if more than 3 hours is spent)
-add proper validation
-make the update operations
-in the unit tests include more fields to test
+add proper validation,
+
+make the update operations,
+
+in the unit tests include more fields to test,
+
 proper encapsulation in the DTO classes
